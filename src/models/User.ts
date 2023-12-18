@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 const userSchema = new mongoose.Schema({
     username:{
         type: String,
@@ -20,4 +22,4 @@ const userSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model("User", cartSchema);
+export default mongoose.model("User", userSchema);

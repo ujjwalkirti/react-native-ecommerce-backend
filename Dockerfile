@@ -10,5 +10,7 @@ COPY . .
 
 RUN npm run build
 
+RUN npm run start
+
 EXPOSE 8080
 CMD [ "node", "dist/index.js" ]
