@@ -1,11 +1,13 @@
 import express, { Express, Request, Response } from "express";
-require("dotenv").config();
+import { configDotenv } from "dotenv";
 import { connectToDb } from "./db";
 import productRouter from "./routes/products";
 import authRouter from "./routes/auth";
 import userRouter from "./routes/user";
 import cartRouter from "./routes/cart";
 import orderRouter from "./routes/order";
+
+configDotenv();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
