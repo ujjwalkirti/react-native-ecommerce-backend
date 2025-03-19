@@ -46,10 +46,10 @@ This is a dummy api for an ecommerce website. I have created this to test my Dev
 
 
 ### Things to do:
-[] Dockerfile to build docker image
-[] Kubernetes deployment file
-[] Deploy to AWS EKS
-[] Configure env variables in k8s deployment
-[] Add jwt based login feature
-[] store tokens in mongodb
+- [ ] Dockerfile to build docker image  
+- [ ] Kubernetes deployment file  
+- [ ] Deploy to AWS EKS  
+- [ ] Configure env variables in k8s deployment  
+- [ ] Add JWT-based login feature  
+- [ ] Store tokens in MongoDB  
 
