@@ -4,7 +4,7 @@ import ordersController from "../controllers/ordersController";
 const orderRouter = Router();
 
 
-orderRouter.get("/", ordersController.getUserorders)
+orderRouter.get("/:userId", ordersController.getUserorders)
 
 
 export default orderRouter;
