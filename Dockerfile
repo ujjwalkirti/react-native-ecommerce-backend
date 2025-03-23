@@ -27,7 +27,7 @@ COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/package*.json ./
 
 # Install only production dependencies
-RUN npm install --only=production
+RUN npm install --omit=dev
 
 # Set environment variable (optional)
 ENV NODE_ENV=production
