@@ -41,14 +41,14 @@ jobs:
             --destination=my-app:$IMAGE_TAG \
             --dockerfile=Dockerfile
 
-      - name: Scan Docker Image with Trivy
+      - name: Scan Docker Image with Trivy (Remote Scan)
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: "my-app:latest"
+          image-ref: "${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest"
           format: "table"
           exit-code: 1  # Fail if vulnerabilities are found
           ignore-unfixed: true
-
+          
       - name: Push Image to ECR (only if scan passes)
         run: |
           ECR_REGISTRY=${{ steps.login-ecr.outputs.registry }}
