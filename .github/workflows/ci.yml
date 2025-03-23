@@ -31,9 +31,8 @@ jobs:
           IMAGE_TAG=latest  # another option: use Git SHA with IMAGE_TAG=$(git rev-parse --short HEAD)
           docker build -t $ECR_REGISTRY/${{ secrets.ECR_REPOSITORY_NAME }}:$IMAGE_TAG .
 
-
       - name: Push Docker image to ECR
         run: |
           ECR_REGISTRY=${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG=latest
-          docker push $ECR_REGISTRY/my-app:$IMAGE_TAG
+          docker push $ECR_REGISTRY/${{ secrets.ECR_REPOSITORY_NAME }}:$IMAGE_TAG
