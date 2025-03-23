@@ -56,6 +56,9 @@ jobs:
           docker run --rm \
             -v $(pwd):/workspace \
             -v /kaniko/.docker:/kaniko/.docker \
+            -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
+            -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+            -e AWS_REGION=ap-south-1 \
             gcr.io/kaniko-project/executor:latest \
             --destination=$ECR_REGISTRY/${{ secrets.ECR_REPOSITORY_NAME }}:$IMAGE_TAG \
             --dockerfile=Dockerfile
