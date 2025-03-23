@@ -6,13 +6,14 @@ import authRouter from "./auth";
 import userRouter from "./user";
 import cartRouter from "./cart";
 import orderRouter from "./order";
+import verifyToken from "../middleware/jwt";
 
 const router = Router();
 
-router.use("/products", productRouter);
+router.use("/products", verifyToken, productRouter);
 router.use("/auth", authRouter);
-router.use("/user", userRouter);
-router.use("/cart", cartRouter);
-router.use("/orders", orderRouter);
+router.use("/user", verifyToken, userRouter);
+router.use("/cart", verifyToken, cartRouter);
+router.use("/orders", verifyToken, orderRouter);
 
 export default router;

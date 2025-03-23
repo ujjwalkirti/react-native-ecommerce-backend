@@ -6,7 +6,10 @@ configDotenv();
 function connectToDb() {
   mongoose
     .connect(process.env.MONGODB_URI as string)
-    .then(() => console.log("Connected!"))
+    .then(() => {
+      //make the console log more descriptive
+      console.log("Connected to MongoDB");
+    })
     .catch((err: any) => console.log(err));
 }
 

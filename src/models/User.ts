@@ -17,7 +17,6 @@ const userSchema = new mongoose.Schema({
     },
     location:{
         type: String,
-        default:"Surat, Gujarat, India"
     }
 
 }, { timestamps: true });

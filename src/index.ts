@@ -2,7 +2,6 @@ import express, { Express, Request, Response } from "express";
 import { configDotenv } from "dotenv";
 import { connectToDb } from "./db";
 import apiRouter from "./routes/index";
-import verifyToken from "./middleware/jwt";
 
 configDotenv();
 
@@ -15,7 +14,7 @@ connectToDb();
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
-app.use("/api", verifyToken, apiRouter);
+app.use("/api", apiRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
