@@ -71,9 +71,9 @@ This is a dummy api for an ecommerce website. I have created this to test my Dev
 
 - [x] Set up GitHub Actions to build the Docker image
 
-- [ ] Use Kaniko for efficient Docker builds in CI
+- [x] Use Kaniko for efficient Docker builds in CI
 
-- [ ] Scan the image for vulnerabilities using Trivy
+- [x] Scan the image for vulnerabilities using Trivy
 
 - [x] Authenticate with AWS and push the image to Amazon ECR
 
