@@ -58,7 +58,7 @@ This is a dummy api for an ecommerce website. I have created this to test my Dev
 ## ✅ DevOps Pipeline Setup Checklist
 
 ### 1️⃣ Code Repository & CI/CD Trigger
-- [ ] Initialize a GitHub repository for the ExpressJS application
+- [x] Initialize a GitHub repository for the ExpressJS application
 
 - [ ] Set up GitHub Actions workflow to trigger on push
 
