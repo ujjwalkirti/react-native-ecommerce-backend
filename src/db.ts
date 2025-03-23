@@ -11,7 +11,7 @@ function connectToDb() {
     .connect(connectionString)
     .then(() => {
       //make the console log more descriptive
-      console.log("Connected to MongoDB");
+      console.log("Connected to MongoDB and the env is: " + process.env.NODE_ENV);
     })
     .catch((err: any) => console.log(err));
 }
