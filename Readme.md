@@ -86,7 +86,7 @@ This is a dummy api for an ecommerce website. I have created this to test my Dev
 
 - [ ] Use Helm to manage Kubernetes manifests
 
-- [ ]Use Kustomize for environment-specific configurations
+- [ ] Use Kustomize for environment-specific configurations
 
 ### 4️⃣ Kubernetes Deployment in Amazon EKS
 - [ ] Provision an Amazon EKS cluster
