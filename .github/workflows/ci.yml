@@ -29,30 +29,33 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build and Push with Kaniko
+      - name: Build Docker Image with Kaniko
         run: |
           ECR_REGISTRY=${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG=latest
           docker run --rm \
             -v $(pwd):/workspace \
             -v /kaniko/.docker:/kaniko/.docker \
-            -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
-            -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
-            -e AWS_REGION=ap-south-1 \
             gcr.io/kaniko-project/executor:latest \
-            --destination=$ECR_REGISTRY/${{ secrets.ECR_REPOSITORY_NAME }}:$IMAGE_TAG \
+            --no-push \
+            --destination=my-app:$IMAGE_TAG \
             --dockerfile=Dockerfile
 
-  scan-image:
-    name: Scan Image for Vulnerabilities
-    runs-on: ubuntu-latest
-    needs: build-and-push
-
-    steps:
       - name: Scan Docker Image with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: "${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest"
+          image-ref: "my-app:latest"
           format: "table"
-          exit-code: 0
+          exit-code: 1  # Fail if vulnerabilities are found
           ignore-unfixed: true
+
+      - name: Push Image to ECR (only if scan passes)
+        run: |
+          ECR_REGISTRY=${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG=latest
+          docker run --rm \
+            -v $(pwd):/workspace \
+            -v /kaniko/.docker:/kaniko/.docker \
+            gcr.io/kaniko-project/executor:latest \
+            --destination=$ECR_REGISTRY/${{ secrets.ECR_REPOSITORY_NAME }}:$IMAGE_TAG \
+            --dockerfile=Dockerfile
