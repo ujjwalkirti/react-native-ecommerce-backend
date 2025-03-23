@@ -23,4 +23,4 @@ ENV NODE_ENV=production
 EXPOSE 3000  
 
 # Start the application using env var for PORT
-CMD ["sh", "-c", "PORT=${PORT:-3000} npm run start"]
+CMD ["sh", "-c", "PORT=${PORT:-6000} npm run start"]
