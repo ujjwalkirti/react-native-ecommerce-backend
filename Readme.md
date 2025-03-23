@@ -60,22 +60,22 @@ This is a dummy api for an ecommerce website. I have created this to test my Dev
 ### 1️⃣ Code Repository & CI/CD Trigger
 - [x] Initialize a GitHub repository for the ExpressJS application
 
-- [ ] Set up GitHub Actions workflow to trigger on push
+- [x] Set up GitHub Actions workflow to trigger on push
 
 - [ ] Install and configure Renovate Bot for dependency updates
 
 - [ ] Add Prettier + ESLint for code quality checks
 
 ### 2️⃣ Build & Push Docker Image
-- [ ] Create a Dockerfile for the application
+- [x] Create a Dockerfile for the application
 
-- [ ] Set up GitHub Actions to build the Docker image
+- [x] Set up GitHub Actions to build the Docker image
 
 - [ ] Use Kaniko for efficient Docker builds in CI
 
 - [ ] Scan the image for vulnerabilities using Trivy
 
-- [ ] Authenticate with AWS and push the image to Amazon ECR
+- [x] Authenticate with AWS and push the image to Amazon ECR
 
 ### 3️⃣ Deploy Using GitOps (Argo CD + Helm + Kustomize)
 - [ ] Store Kubernetes manifests in a separate Git repository
