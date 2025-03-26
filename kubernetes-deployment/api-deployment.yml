@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    app: api
+  namespace: learning-kubernetes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      imagePullSecrets:
+        - name: ecr-key
+      containers:
+        - name: api
+          image: 249834688989.dkr.ecr.ap-south-1.amazonaws.com/learning-devops/react-native-ecommerce-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 6000
+          envFrom:
+            - secretRef:
+                name: api-secrets
+          

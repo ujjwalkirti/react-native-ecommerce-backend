@@ -89,7 +89,7 @@ This is a dummy api for an ecommerce website. I have created this to test my Dev
 - [ ] Use Kustomize for environment-specific configurations
 
 ### 4️⃣ Kubernetes Deployment in Amazon EKS
-- [ ] Provision an Amazon EKS cluster
+- [x] Provision an Amazon EKS cluster
 
 - [ ] Deploy the application using Kubernetes Deployment, Service, and Ingress
 
