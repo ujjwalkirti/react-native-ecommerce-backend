@@ -19,11 +19,10 @@ spec:
         - name: ecr-key
       containers:
         - name: api
-          image: 249834688989.dkr.ecr.ap-south-1.amazonaws.com/learning-devops/react-native-ecommerce-api:latest
+          image: 951405501907.dkr.ecr.ap-south-1.amazonaws.com/learning-devops/react-native-ecommerce-api:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 6000
           envFrom:
             - secretRef:
                 name: api-secrets
-          
