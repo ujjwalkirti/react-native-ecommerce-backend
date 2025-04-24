@@ -16,6 +16,19 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
 app.use("/api", apiRouter);
 
+// Kubernetes health check routes
+app.get("/healthz", (req: Request, res: Response) => {
+  res.status(200).send("OK"); // Liveness probe
+});
+
+app.get("/ready", (req: Request, res: Response) => {
+  res.status(200).send("READY");
+});
+
+app.get("/started", (req: Request, res: Response) => {
+  res.status(200).send("STARTED"); // Startup probe
+});
+
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
